@@ -6,18 +6,18 @@ export interface Options {
   defaultValue?: string
 
   /**
-     * @default false
-     */
+   * @default false
+   */
   persianNumber?: boolean
 
   /**
-     * @default true
-     */
+   * @default true
+   */
   singleSpace?: boolean
 
   /**
-     * @default true
-     */
+   * @default true
+   */
   trim?: boolean
 
   unicodeMap?: Map
