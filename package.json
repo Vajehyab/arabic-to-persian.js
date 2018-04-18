@@ -1,7 +1,7 @@
 {
   "name": "arabic-to-persian",
   "version": "0.0.0",
-  "description": "",
+  "description": "A library to convert arabic text to persian",
   "keywords": [],
   "main": "dist/arabic-to-persian.umd.js",
   "module": "dist/arabic-to-persian.es5.js",
@@ -12,7 +12,7 @@
   "author": "Tooraj Khatibi <2rajpx@gmail.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Vajehyab/arabic-to-persian.js.git"
   },
   "license": "MIT",
   "engines": {
