@@ -4,13 +4,13 @@
 
 ## Install
 
-```command
+```bash
 npm install arabic-to-persian
 ```
 
 or
 
-```command
+```bash
 yarn add arabic-to-persian
 ```
 
@@ -53,13 +53,6 @@ function customConvert(text) {
 console.log(customConvert(arabic) === persian); // true
 ```
 
-## Options
+## Api
 
-| Name           | Type                      | Default Value | Description |
-| -------------- | ------------------------- | ------------- | ----------- |
-| `charMap`      | { [key: Char]: Char }     | {}            |             |
-| `defaultValue` | Char                      | --            |             |
-| `persianNumber`| boolean                   | false         |             |
-| `singleSpace`  | boolean                   | true          |             |
-| `trim`         | boolean                   | true          |             |
-| `unicodeMap`   | { [key: Unicode]: Char }  | UNICODE_MAP   |             |
+See [documentation](https://vajehyab.github.io/arabic-to-persian.js)
