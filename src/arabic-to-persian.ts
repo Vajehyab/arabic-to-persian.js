@@ -6,12 +6,25 @@ import CHAR_MAP from './char-map'
 import PERSIAN_NUMBERS_MAP from './persian-numbers-map'
 import UNICODE_MAP from './unicode-map'
 
-export type Map = { [key: string]: string }
+export type Char = string
+
+export type CharMap = { [key: string]: string }
+
+export type UnicodeMap = { [key: string]: string }
+
+export type DefaultValue = (c: Char) => string
 
 export interface Options {
-  charMap?: Map
+  /**
+   * @default CHAR_MAP
+   */
+  charMap?: CharMap
 
-  defaultValue?: string
+  /**
+   * A callback that is called when unicode of character is undefined
+   * @default c => c
+   */
+  defaultValue?: DefaultValue
 
   /**
    * @default false
@@ -28,7 +41,10 @@ export interface Options {
    */
   trim?: boolean
 
-  unicodeMap?: Map
+  /**
+   * @default UNICODE_MAP
+   */
+  unicodeMap?: UnicodeMap
 }
 
 export {
@@ -48,7 +64,7 @@ export function unicodeOf(c: string) {
   return result
 }
 
-export function replaceByCharMap(text: string, map: Map) {
+export function replaceByCharMap(text: string, map: CharMap) {
   let result = text
   const replace = Object.keys(map)
   const by = Object.values(map)
@@ -58,10 +74,14 @@ export function replaceByCharMap(text: string, map: Map) {
   return result
 }
 
-export function replaceByUnicodeMap(text: string, map: Map, defaultValue?: string) {
+export function replaceByUnicodeMap(
+  text: string,
+  map: UnicodeMap,
+  defaultValue: DefaultValue = (c: Char) => c
+) {
   return text
     .split('')
-    .map(c => map[unicodeOf(c)] || defaultValue || c)
+    .map(c => map[unicodeOf(c)] || defaultValue(c))
     .join('')
 }
 

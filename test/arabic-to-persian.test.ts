@@ -33,8 +33,8 @@ describe('replaceByUnicodeMap test', () => {
     expect(Api.replaceByUnicodeMap('ﻭاﮊﻩ', Api.UNICODE_MAP)).toBe('واژه')
   })
   it('converts text with defaultValue', () => {
-    expect(Api.replaceByUnicodeMap('﷼', Api.UNICODE_MAP, '***')).not.toBe('ریال')
-    expect(Api.replaceByUnicodeMap('﷼', Api.UNICODE_MAP, '***')).toBe('***')
+    expect(Api.replaceByUnicodeMap('﷼', Api.UNICODE_MAP, () => '***')).not.toBe('ریال')
+    expect(Api.replaceByUnicodeMap('﷼', Api.UNICODE_MAP, () => '***')).toBe('***')
   })
   it("converts text but doesn't convert chars with undefined unicode", () => {
     expect(Api.replaceByUnicodeMap('۵۰ ٪', Api.UNICODE_MAP)).not.toBe('50 %')
@@ -58,7 +58,7 @@ describe('convert test', () => {
   })
   it('works with "defaultValue" option', () => {
     expect(Api.convert('﷼')).toBe('﷼')
-    expect(Api.convert('﷼', { defaultValue: "***" })).toBe('***')
+    expect(Api.convert('﷼', { defaultValue: () => "***" })).toBe('***')
   })
   it('works with "persianNumbers" option', () => {
     expect(Api.convert('se7en', { persianNumbers: true })).toBe('se۷en')
