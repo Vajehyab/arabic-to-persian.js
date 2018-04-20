@@ -1,6 +1,6 @@
 {
   "name": "arabic-to-persian",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "A library to convert arabic text to persian",
   "keywords": [],
   "main": "dist/arabic-to-persian.umd.js",
