@@ -1,5 +1,7 @@
 # arabic-to-persian
 
+[![Coverage Status](https://coveralls.io/repos/github/Vajehyab/arabic-to-persian.js/badge.svg?branch=master)](https://coveralls.io/github/Vajehyab/arabic-to-persian.js?branch=master)
+
 `arabic-to-persian` is a library to convert arabic text to persian.
 
 ## Install
