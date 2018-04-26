@@ -1,12 +1,12 @@
 import * as Api from '../src/arabic-to-persian'
 
-describe('Dummy test', () => {
+describe('Dummy', () => {
   it('works if true is truthy', () => {
     expect(true).toBeTruthy()
   })
 })
 
-describe('unicodeOf test', () => {
+describe('unicodeOf', () => {
   it('returns unicode of character', () => {
     expect(Api.unicodeOf('٠')).not.toBe('660')
     expect(Api.unicodeOf('٠')).toBe('0660')
@@ -17,7 +17,7 @@ describe('unicodeOf test', () => {
   })
 })
 
-describe('replaceByCharMap test', () => {
+describe('replaceByCharMap', () => {
   it('converts text', () => {
     expect(Api.replaceByCharMap('0123456789ABC', Api.PERSIAN_NUMBERS_MAP)).toBe('۰۱۲۳۴۵۶۷۸۹ABC')
   })
@@ -27,7 +27,7 @@ describe('replaceByCharMap test', () => {
   })
 })
 
-describe('replaceByUnicodeMap test', () => {
+describe('replaceByUnicodeMap', () => {
   it('converts text without defaultValue', () => {
     expect(Api.replaceByUnicodeMap('ﻭاﮊﻩ', Api.UNICODE_MAP)).not.toBe('ﻭاﮊﻩ')
     expect(Api.replaceByUnicodeMap('ﻭاﮊﻩ', Api.UNICODE_MAP)).toBe('واژه')
@@ -45,13 +45,20 @@ describe('replaceByUnicodeMap test', () => {
   })
 })
 
-describe('replaceMultiSpacesWithSingleSpace test', () => {
+describe('replaceMultiSpacesWithSingleSpace', () => {
   it('returns text with single space between words', () => {
     expect(Api.replaceMultiSpacesWithSingleSpace('Hello     world  !  !!   !')).toBe('Hello world ! !! !')
   })
 })
 
-describe('convert test', () => {
+describe('createConverter', () => {
+  it('returns convertor function', () => {
+    const ar2fa = Api.createConverter()
+    expect(ar2fa('ﻭاﮊﻩ')).toBe('واژه')
+  })
+})
+
+describe('convert', () => {
   it('works with "charMap" option', () => {
     expect(Api.convert('﷼', { charMap: {} })).toBe('﷼')
     expect(Api.convert('﷼', { charMap: { '﷼': 'ریال' } })).toBe('ریال')
