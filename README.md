@@ -35,7 +35,7 @@ console.log(convert(arabic) === persian); // true
 ```
 
 `convert` accepts another argument as `options`.
-In this example, you can see how it's possible to set your own `charMap`:
+In this example you can see how it's possible to set your own `charMap`:
 
 ```javascript
 import { convert } from "arabic-to-persian";
@@ -55,6 +55,24 @@ function customConvert(text) {
 }
 
 console.log(customConvert(arabic) === persian); // true
+```
+
+A better way to create yout own converter is to use `createConverter` closure:
+
+```javascript
+import { createConverter } from "arabic-to-persian";
+
+const arabic = "﷼";
+
+const persian = "ریال";
+
+console.log(arabic === persian); // false
+
+const options = { charMap: {} };
+options.charMap[arabic] = persian;
+const ar2fa = createConverter(options)
+
+console.log(ar2fa(arabic) === persian); // true
 ```
 
 ## Api
