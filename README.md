@@ -1,6 +1,8 @@
 # arabic-to-persian
 
-[![Build Status](https://travis-ci.org/Vajehyab/arabic-to-persian.js.svg?branch=master)](https://travis-ci.org/Vajehyab/arabic-to-persian.js) [![Coverage Status](https://coveralls.io/repos/github/Vajehyab/arabic-to-persian.js/badge.svg?branch=master)](https://coveralls.io/github/Vajehyab/arabic-to-persian.js?branch=master)
+[![Build Status](https://travis-ci.org/Vajehyab/arabic-to-persian.js.svg?branch=master)](https://travis-ci.org/Vajehyab/arabic-to-persian.js)
+[![Coverage Status](https://coveralls.io/repos/github/Vajehyab/arabic-to-persian.js/badge.svg?branch=master)](https://coveralls.io/github/Vajehyab/arabic-to-persian.js?branch=master)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 `arabic-to-persian` is a library to convert arabic text to persian.
 
@@ -58,3 +60,7 @@ console.log(customConvert(arabic) === persian); // true
 ## Api
 
 See [documentation](https://vajehyab.github.io/arabic-to-persian.js)
+
+## Contributing
+
+See [contributing guide](CONTRIBUTING.md)
