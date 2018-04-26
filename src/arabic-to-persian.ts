@@ -89,7 +89,7 @@ export function replaceMultiSpacesWithSingleSpace(text: string) {
   return text.replace(/ +(?= )/g, '')
 }
 
-export function convert(text: string, options: Options = {}) {
+export function createConverter(options: Options = {}) {
   const {
     charMap = CHAR_MAP,
     defaultValue,
@@ -99,23 +99,29 @@ export function convert(text: string, options: Options = {}) {
     unicodeMap = UNICODE_MAP,
   } = options
 
-  let result = text
-
-  if (trim) {
-    result = result.trim()
+  return (text: string) => {
+    let result = text
+  
+    if (trim) {
+      result = result.trim()
+    }
+  
+    if (singleSpace) {
+      result = replaceMultiSpacesWithSingleSpace(result)
+    }
+  
+    result = replaceByUnicodeMap(result, unicodeMap, defaultValue)
+  
+    result = replaceByCharMap(result, charMap)
+  
+    if (persianNumbers) {
+      result = replaceByCharMap(result, PERSIAN_NUMBERS_MAP)
+    }
+  
+    return result
   }
+}
 
-  if (singleSpace) {
-    result = replaceMultiSpacesWithSingleSpace(result)
-  }
-
-  result = replaceByUnicodeMap(result, unicodeMap, defaultValue)
-
-  result = replaceByCharMap(result, charMap)
-
-  if (persianNumbers) {
-    result = replaceByCharMap(result, PERSIAN_NUMBERS_MAP)
-  }
-
-  return result
+export function convert(text: string, options: Options = {}) {
+  return createConverter(options)(text)
 }
