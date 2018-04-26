@@ -57,7 +57,7 @@ function customConvert(text) {
 console.log(customConvert(arabic) === persian); // true
 ```
 
-A better way to create yout own converter is to use `createConverter` closure:
+A better way to create your own converter is createConverter closure:
 
 ```javascript
 import { createConverter } from "arabic-to-persian";
